@@ -4,7 +4,12 @@ import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
-    path: '', component:HomeComponent
+    path: '', component:HomeComponent, children:[
+      {
+        path:'home', loadChildren: () => import('../tabela.module')
+        .then(m => m.TabelaModule)
+      }
+    ]
   }
 ];
 
